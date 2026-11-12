@@ -9,6 +9,7 @@
   in {
     packages = forAllSystems (system: let
       pkgs = nixpkgs.legacyPackages.${system};
+    in {
       authorizedKeys = pkgs.fetchurl {
         url = "https://meta.sr.ht/~ashymad.keys";
 
@@ -17,8 +18,6 @@
 
         hash = "sha256-g5Gjrsah6EArtJIMVcCb+/Hb7CAjyToBmXlFx+yNpQ8=";
       };
-    in {
-      keys = pkgs.lib.remove "" (pkgs.lib.splitString "\n" (builtins.readFile authorizedKeys));
     });
   };
 }
