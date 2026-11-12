@@ -18,6 +18,7 @@
 
         hash = "sha256-g5Gjrsah6EArtJIMVcCb+/Hb7CAjyToBmXlFx+yNpQ8=";
       };
+      default = self.packages.${system}.authorizedKeys;
     });
   };
 }
